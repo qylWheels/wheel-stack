@@ -146,7 +146,7 @@ void _stack_delete_uuid(const char *uuid) {
     while(del != NULL) {
         prev = del;
         del = del->next;
-        if(del != NULL && strcmp(del->uuid, uuid)) {
+        if(del != NULL && strcmp(del->uuid, uuid) == 0) {
             prev->next = del->next;
             free(del);
         }
