@@ -111,6 +111,7 @@ void stack_free(T *stk) {
     }
     free(prev);
     free(*stk);
+    *stk = NULL;
 
     return;
 }
