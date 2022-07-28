@@ -101,6 +101,9 @@ void stack_free(T *stk) {
     _stack_delete_uuid((*stk)->uuid);
 
     struct elem *prev = (*stk)->head, *next;
+    if(prev == NULL) {
+        return;
+    }
     while(prev->next != NULL) {
         next = prev->next;
         free(prev);
@@ -157,7 +160,7 @@ int _stack_check_uuid(const char *uuid) {
     struct _UUIDList *p = _uuid_list_head;
 
     while(p != NULL) {
-        if(strcmp(p->uuid, uuid)) {
+        if(strcmp(p->uuid, uuid) == 0) {
             return 1;
         }
         p = p->next;
